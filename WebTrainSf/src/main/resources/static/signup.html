@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<title>Page Title</title>
+		<style>
+			* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	font-family: 'Questrial', sans-serif;
+}
+body {
+	background-image: url(https://res.cloudinary.com/dc1lii1t8/image/upload/v1688156492/cld-sample-2.jpg);
+
+}
+h1 {
+	color: #fff;
+	text-align: center;
+	margin-top: 130px;
+}
+h1.member {
+	margin-top: 45px;
+}
+.container {
+	background-color: rgba(255, 255, 255, 0.6);
+	width: 400px;
+	height: auto;
+	text-align: center;
+	margin: 0 auto;
+	padding: 15px;
+	margin-top: 40px;
+
+}
+input[type=text], input[type=password], input[type=email], input[type=date], input[type=number] {
+	box-sizing: border-box;
+	width: 300px;
+	height: 45px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	margin-top: 15px; 
+	background-image: url("https://res.cloudinary.com/mamo/image/upload/c_scale,w_40/v1475961978/Contacts-Filled-50_qrzhh1.png");
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 60px;
+}
+input[type=password] {
+	background-image: url("https://res.cloudinary.com/mamo/image/upload/c_scale,w_40/v1475961982/Lock-Filled-50_szrogo.png");
+}
+input[type=email] {
+	background-image: url("https://res.cloudinary.com/mamo/image/upload/c_scale,w_40/v1476033159/Gmail-Login-Filled-50_tywgz0.png");
+	background-position: 5px;
+}
+input[type=date] {
+	background-image: url("https://res.cloudinary.com/mamo/image/upload/c_scale,w_40/v1476033159/Birthday-Cake-Filled-50_pbfbgl.png");
+	background-position: 5px;
+}
+
+
+input[type=button], input[type=submit], input[type=reset] {
+	background-color: #800080;
+	color: #fff;
+	padding: 10px, 15px;
+	cursor: pointer;
+	width: 148px;
+	height: 45px;
+	margin-bottom: 20px;
+}
+/*Media Queries Section*/
+
+@media screen and (max-width: 480px) {
+	h1 {
+		margin-top: 30px;
+	}
+	.container {
+		width: 90%;
+		padding: 0 5%;
+
+		
+	}
+}
+@media screen and (max-width: 332px) {
+	.container {
+		height: auto;
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+	input[type=text], input[type=password], input[type=email], input[type=date], input[type=color],input[type=number] select {
+		width: 275px;
+		height: auto;
+	}
+	 input[type=submit]{
+		width: 150px;
+		height: 30px;
+	}
+	input[type=checkbox] {
+		line-height: -50px;
+	}
+	input[type=color] {
+		height: 40px;
+	}
+	p {
+		line-height: 1px;
+	}	
+
+}
+		</style>
+	</head>
+	<body>
+		<h1 class="member">Welcome To Stellar Fly </h1>
+<div class="container">
+	<form method="post">
+		<input type="text" id="username" name="username" placeholder="Username" required>
+		<input type="email" id="email" name="email" placeholder="Email address" required>
+		<input type="password" id="password" name="password" placeholder="Password" required>
+		<!--  <input type="password" name="repeatpassword" placeholder="Retype password" required="">-->
+		
+		<input type="text" id="contact" name="contact" placeholder="Contact No" required>
+		<!--  <input type="date" id="dob" name="dob" required>-->
+		<input type="submit" onclick="check()" name="submit" value="Submit">
+		
+	</form>
+</div>
+	</body>
+</html>
+<script>
+    function check() {
+
+        var url = "http://localhost:8080/signup";
+		var username = document.getElementById('username').value;
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var contact = document.getElementById('contact').value;
+		
+        var data = {
+					"username" : username,
+					"email": email,
+                    "password" : password,
+                    "contact": contact
+                    };
+		var jsonData = JSON.stringify(data);
+        var other_params = {
+            headers : { "content-type" : "application/json; charset=UTF-8"},
+            body : jsonData,
+            method : "POST"
+        };
+
+        fetch(url, other_params)
+            .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Could not reach the API: " + response.statusText);
+            }
+        }).then(function(data) {
+            document.getElementById("message").innerHTML = data.encoded;
+        }).catch(function(error) {
+            document.getElementById("message").innerHTML = error.message;
+        });
+        return true;
+    }
+  </script>

@@ -1,0 +1,251 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5em;
+  padding: 0;
+  margin: 0;
+}
+.logo img{
+	height:135px;
+	width:200px;
+	
+}
+
+
+
+#home {
+	background-image:url(https://res.cloudinary.com/dc1lii1t8/image/upload/v1688194309/photo_wpi22e.jpg);
+	background-size:cover;
+	
+}
+
+#about {
+  background-color:#;
+}
+
+#work {
+  background-color:#;
+}
+
+#contact {
+  background-color:#;
+}
+
+
+*{
+	text-decoration: none;
+}
+.navba{
+	height:135px;
+	background:#b5ebea;
+	font-family: calibri; 
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.navdiv{
+	display: flex; 
+	align-items: center; 
+	justify-content: space-between;
+}
+.logo a{
+	font-size: 35px; 
+	font-weight: 600; 
+	color: white;
+}
+li{
+	list-style: none; 
+	display: inline-block;
+}
+li a{
+	color: white; 
+	font-size: 18px; 
+	font-weight: bold; 
+	margin-right: 25px;
+}
+button{
+	background-color: green; 
+	color:white;
+	margin-left: 10px;
+	border-radius: 10px; 
+	padding: 10px; 
+	width: 90px;
+}
+button a{
+	color: white;
+	font-weight: bold; 
+	font-size: 15px;
+}
+
+
+/* NAVBAR above ***************************************************************************************/
+  
+#h-login{   
+    float: left; 
+	display:flex;
+	margin:25px;
+	border:2px solid black;
+	height:500px;
+	width:45%;
+	text-align: center;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#h-signin{
+    float: left; 
+	display:none;
+	margin:25px;
+	border:2px solid black;
+	height:500px;
+	width:45%;
+	text-align: center;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGIN and SIGN-IN Page above ****************************************************************************/
+
+
+/* LOGIN Page below ****************************************************************************/
+.log-container  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Add a hover effect for buttons */
+.log-container button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.log-container .cancelbtn {
+  width: 50%;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.log-container span.f-psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/*****************************************************************************/
+
+
+
+/* Search Form */
+* {
+  box-sizing: border-box;
+}
+#aeroplane {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#search-form {
+  border: 1px solid red;
+  width: 700px;
+  position: relative;
+  margin-top:100px;
+}
+
+#header {
+  height: 80px;
+  background: red;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#header h1 {
+  color: #b5ebea;
+  margin-left: 20px;
+  font-size: 1.3em
+}
+
+.flight {
+  padding: 20px;
+}
+.flight input, select {
+    color: #6B6A6A;
+}
+
+.info-box {
+  padding: 10px 0;
+  margin-top: 20px;
+  flex: 1;
+  border-right: 20px solid transparent;
+}
+.info-box:last-child {
+  border-right: none;
+}
+.info-box label {
+  display: block;
+  color: #6B6A6A;
+  font-size: .9em;
+}
+.info-box input[type=text], input[type=submit], select {
+  border: none;
+  outline: none;
+  background: #E2E0E0;
+  margin-top: 5px;
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+
+#flight-depart {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted silver;
+}
+#flight-depart .info-box {
+  position: relative;
+}
+#depart-res, #arrive-res {
+  position: absolute;
+  background: #FFFFFF;
+}
+#depart-res p, #arrive-res p {
+  padding: 7px 2px;
+  border-bottom: 1px dotted silver;
+}
+#depart-res p:hover, #arrive-res p:hover {
+  background: #EDEDED;
+  cursor: pointer;
+}
+
+#flight-dates {
+  display: flex;
+  border-bottom: 1px dotted silver;
+}
+
+#flight-info {
+  display: flex;
+  border-bottom: 1px dotted silver;
+}
+
+#flight-search .info-box {
+  display: flex;
+  justify-content: center;
+}
+#flight-search input[type=submit] {
+  background: #55AF3A;
+  color: white;
+  padding: 0;
+  height: 50px;
+  font-size: 1.2em;
+}
+

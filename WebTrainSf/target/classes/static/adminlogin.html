@@ -1,0 +1,147 @@
+<html>
+	<head>
+		<title>Login Form</title>
+		
+		<style>
+			* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	font-family: 'Questrial', sans-serif;
+}
+body {
+	background-image: url(https://res.cloudinary.com/dc1lii1t8/image/upload/v1688156492/cld-sample-2.jpg);
+
+}
+h1 {
+	color: #fff;
+	text-align: center;
+	margin-top: 130px;
+}
+h1.member {
+	margin-top: 45px;
+}
+.container {
+	background-color: rgba(255, 255, 255, 0.6);
+	width: 400px;
+	height: auto;
+	text-align: center;
+	margin: 0 auto;
+	padding: 15px;
+	margin-top: 40px;
+
+}
+input[type=text], input[type=password], input[type=email], input[type=date], input[type=color] {
+	box-sizing: border-box;
+	width: 300px;
+	height: 45px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	margin-top: 15px; 
+	background-image: url("https://res.cloudinary.com/mamo/image/upload/c_scale,w_40/v1475961978/Contacts-Filled-50_qrzhh1.png");
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 60px;
+}
+input[type=password] {
+	background-image: url("https://res.cloudinary.com/mamo/image/upload/c_scale,w_40/v1475961982/Lock-Filled-50_szrogo.png");
+}
+
+input[type=submit], input[type=reset] {
+	background-color: #800080;
+	color: #fff;
+	padding: 10px, 15px;
+	cursor: pointer;
+	width: 148px;
+	height: 45px;
+	margin-bottom: 20px;
+}
+select {
+	width: 300px;
+	height: 45px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	margin-top: 15px; 
+
+}
+
+/*Media Queries Section*/
+
+@media screen and (max-width: 480px) {
+	h1 {
+		margin-top: 30px;
+	}
+	.container {
+		width: 90%;
+		padding: 0 5%;
+
+		
+	}
+}
+@media screen and (max-width: 332px) {
+	.container {
+		height: auto;
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+	input[type=text], input[type=password],   select {
+		width: 275px;
+		height: auto;
+	}
+	 input[type=submit], input[type=reset] {
+		width: 150px;
+		height: 30px;
+	}
+	
+	p {
+		line-height: 1px;
+	}	
+
+}
+		</style>
+	</head>
+	<body>
+		<h1 class="member"style="color:black">Admin Login</h1>
+<div class="container">
+		<input type="text" id="username" name="username" placeholder="username" required>
+		<br><br>
+		<input type="password" id="password" name="password" placeholder="password" required>
+		<input type="submit" onclick="check()" name="submit" value="Submit">
+</div>
+	</body>
+</html>
+
+<script>
+    function check() {
+		var username = document.getElementById('username').value;
+		var password = document.getElementById('password').value;
+
+		var data = JSON.stringify({
+			"username": username,
+			"password": password
+		});
+
+		var xhr = new XMLHttpRequest();
+		xhr.withCredentials = true;
+
+		xhr.addEventListener("readystatechange", function() {
+			if (this.readyState === 4) {
+				if (this.status === 200) {
+					var response = JSON.parse(this.responseText);
+					if (response) {
+						window.location.assign("adminmain.html");
+						alert("Successfully Logged In.");
+						
+					} else {
+						console.log("Request was successful, but the response was not as expected.");
+					}
+				} else {
+					console.log("Request failed with status: " + this.status);
+				}
+			}
+		});
+
+		xhr.open("POST", "http://localhost:8080/adminlogin");
+		xhr.setRequestHeader("Content-Type", "application/json");
+
+		xhr.send(data);
+    }
+  </script>
